@@ -1,0 +1,13 @@
+Imports System.Text.RegularExpressions
+Public Class Form1
+Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+Dim regex As Regex = New Regex("^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-
+9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$")
+Dim isValid As Boolean = regex.IsMatch(TextBox1.Text.Trim)
+If Not isValid Then
+ErrorProvider1.SetError(TextBox1, "Invalid E-mail ID")
+Else
+MsgBox("Valid E-Mail ID")
+End If
+End Sub
+End class
